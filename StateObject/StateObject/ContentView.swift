@@ -23,9 +23,10 @@ struct ContentView: View {
             Text("Breed, \(cat.breed)")
             Text("Age, \(cat.age)")
             Text("Weight, \(cat.weight)")
-            DisplayTextField(creature: cat)
+            DisplayTextField()
         }
         .padding()
+        .environmentObject(cat)
     }
 }
 
