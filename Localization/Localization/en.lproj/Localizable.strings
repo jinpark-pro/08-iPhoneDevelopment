@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Localization
+
+  Created by Jungjin Park on 2024-07-03.
+  
+*/
+"greeting-label %@" = "Hello %@";
+"button-label" = "Tap me";
+"placeholder-label" = "Type here";

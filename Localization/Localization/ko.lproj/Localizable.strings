@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Localization
+
+  Created by Jungjin Park on 2024-07-03.
+  
+*/
+"greeting-label %@" = "안녕하세요 %@";
+"button-label" = "탭 하세요";
+"placeholder-label" = "여기에 입력하세요";
