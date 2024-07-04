@@ -53,7 +53,25 @@ class MapViewModel: NSObject, CLLocationManagerDelegate {
     }
     
     func shareLocation() {
-        print("share location")
+        guard let selectedPlace = selectedPlace else { return }
+        let coordinate = selectedPlace.placemark.coordinate
+        let placeName = selectedPlace.name ?? "Selected location"
+        
+        let mapLink = "http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)"
+        let shareText = "\(placeName) - Map Link: \(mapLink)"
+        
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            if let popoverPresentationController = activityViewController.popoverPresentationController {
+                popoverPresentationController.sourceView = rootViewController.view
+                popoverPresentationController.sourceRect = CGRect(x: rootViewController.view.bounds.midX, y: rootViewController.view.bounds.midY, width: 0, height: 0)
+                
+                popoverPresentationController.permittedArrowDirections = []
+            }
+            rootViewController.present(activityViewController, animated: true, completion: nil)
+        }
     }
     
     // MADK: - CLLocationManagerDelegate
