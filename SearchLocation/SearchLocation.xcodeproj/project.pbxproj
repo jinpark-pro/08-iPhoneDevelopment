@@ -12,6 +12,7 @@
 		3C4B68192C3680A100F0F21F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B68182C3680A100F0F21F /* Assets.xcassets */; };
 		3C4B681C2C3680A100F0F21F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B681B2C3680A100F0F21F /* Preview Assets.xcassets */; };
 		3C4B68232C3681B100F0F21F /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B68222C3681B100F0F21F /* MapViewModel.swift */; };
+		3C4B68252C36930700F0F21F /* PlaceInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B68242C36930700F0F21F /* PlaceInfoPanel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3C4B68182C3680A100F0F21F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C4B681B2C3680A100F0F21F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3C4B68222C3681B100F0F21F /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		3C4B68242C36930700F0F21F /* PlaceInfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoPanel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				3C4B68142C36809F00F0F21F /* SearchLocationApp.swift */,
 				3C4B68162C36809F00F0F21F /* ContentView.swift */,
+				3C4B68242C36930700F0F21F /* PlaceInfoPanel.swift */,
 				3C4B68222C3681B100F0F21F /* MapViewModel.swift */,
 				3C4B68182C3680A100F0F21F /* Assets.xcassets */,
 				3C4B681A2C3680A100F0F21F /* Preview Content */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C4B68252C36930700F0F21F /* PlaceInfoPanel.swift in Sources */,
 				3C4B68172C36809F00F0F21F /* ContentView.swift in Sources */,
 				3C4B68232C3681B100F0F21F /* MapViewModel.swift in Sources */,
 				3C4B68152C36809F00F0F21F /* SearchLocationApp.swift in Sources */,
