@@ -15,25 +15,56 @@ struct ContentView: View {
         center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
     
+    @State private var searchText = ""
+    @State private var searchResults: [MKMapItem] = []
+    
     var body: some View {
-        VStack {
-            if let location = locationManager.location {
-                Map(coordinateRegion: $region, showsUserLocation: true)
-                    .onAppear {
-                        setRegion(location.coordinate)
+        NavigationStack {
+            VStack {
+                if let location = locationManager.location {
+                    Map(coordinateRegion: $region,
+                        showsUserLocation: true,
+                        annotationItems: searchResults) { item in
+                        MapPin(coordinate: item.placemark.coordinate)
                     }
-            } else {
-                Text("Locating your position...")
+                        .onAppear {
+                            setRegion(location.coordinate)
+                        }
+                } else {
+                    Text("Locating your position...")
+                }
+            }
+            .onAppear {
+                locationManager.requestLocation()
+            }
+            .searchable(text: $searchText)
+            .onChange(of: searchText) { newValue in
+                searchAddress(query: newValue)
             }
         }
-        .onAppear {
-            locationManager.requestLocation()
-        }
-        .padding()
     }
     
     private func setRegion(_ coordinate: CLLocationCoordinate2D) {
         region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+    }
+    
+    private func searchAddress(query: String) {
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = query
+        request.region = region
+        
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else {
+                print("Search error: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            self.searchResults = response.mapItems
+            if let firstResult = response.mapItems.first {
+                setRegion(firstResult.placemark.coordinate)
+            }
+        }
     }
 }
 
@@ -66,5 +97,11 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
+    }
+}
+
+extension MKMapItem: Identifiable {
+    public var id: UUID {
+        return UUID()
     }
 }
