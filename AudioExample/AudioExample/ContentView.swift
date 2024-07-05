@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
     var audioPlayerManager = AudioPlayerManager()
     @State var isAudioPlaying = false
+    // video
+    @State var player: AVPlayer?
     
     var body: some View {
         VStack {
@@ -28,6 +31,15 @@ struct ContentView: View {
         .onAppear {
             audioPlayerManager.loadAudio(name: "Small World", withExtension: "mp3")
         }
+        VideoPlayer(player: player)
+            .frame(height: 320)
+            .onAppear {
+                guard let videoURL = Bundle.main.url(forResource: "SaturnV", withExtension: "mov") else {
+                    print("Video file not found")
+                    return
+                }
+                player = AVPlayer(url: videoURL as URL)
+            }
     }
 }
 

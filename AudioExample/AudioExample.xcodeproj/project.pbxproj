@@ -13,6 +13,7 @@
 		3C4B683A2C377EDC00F0F21F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B68392C377EDC00F0F21F /* Preview Assets.xcassets */; };
 		3C4B68412C377F1900F0F21F /* Small World.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B68402C377F1900F0F21F /* Small World.mp3 */; };
 		3C4B68432C37801A00F0F21F /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4B68422C37801A00F0F21F /* AudioPlayerManager.swift */; };
+		3C4B68452C37863800F0F21F /* SaturnV.mov in Resources */ = {isa = PBXBuildFile; fileRef = 3C4B68442C37863800F0F21F /* SaturnV.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		3C4B68392C377EDC00F0F21F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3C4B68402C377F1900F0F21F /* Small World.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Small World.mp3"; sourceTree = "<group>"; };
 		3C4B68422C37801A00F0F21F /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
+		3C4B68442C37863800F0F21F /* SaturnV.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = SaturnV.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				3C4B68362C377EDC00F0F21F /* Assets.xcassets */,
 				3C4B68422C37801A00F0F21F /* AudioPlayerManager.swift */,
 				3C4B68402C377F1900F0F21F /* Small World.mp3 */,
+				3C4B68442C37863800F0F21F /* SaturnV.mov */,
 				3C4B68382C377EDC00F0F21F /* Preview Content */,
 			);
 			path = AudioExample;
@@ -133,6 +136,7 @@
 			files = (
 				3C4B683A2C377EDC00F0F21F /* Preview Assets.xcassets in Resources */,
 				3C4B68412C377F1900F0F21F /* Small World.mp3 in Resources */,
+				3C4B68452C37863800F0F21F /* SaturnV.mov in Resources */,
 				3C4B68372C377EDC00F0F21F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
