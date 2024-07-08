@@ -32,7 +32,7 @@ struct ContentView: View {
             audioPlayerManager.loadAudio(name: "Small World", withExtension: "mp3")
         }
         VideoPlayer(player: player)
-            .frame(height: 320)
+            .frame(height: 220)
             .onAppear {
                 guard let videoURL = Bundle.main.url(forResource: "SaturnV", withExtension: "mov") else {
                     print("Video file not found")
