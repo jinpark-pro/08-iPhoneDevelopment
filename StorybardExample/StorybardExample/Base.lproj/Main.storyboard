@@ -21,7 +21,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="xrc-wo-BBE" kind="show" id="HdW-w2-j4o"/>
+                                    <segue destination="xrc-wo-BBE" kind="show" destinationCreationSelector="openSwiftUIView:" id="HdW-w2-j4o"/>
                                 </connections>
                             </button>
                         </subviews>
