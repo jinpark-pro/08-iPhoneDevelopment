@@ -17,31 +17,41 @@ struct ContentView: View {
     
     @State var message = ""
     @State var buttonStatus = true
-    
-    func stopRecoding() {
-        audioEngine.stop()
-        recognitionTask?.cancel()
-        audioEngine.inputNode.removeTap(onBus: 0)
-        recognitionRequest?.endAudio()
-    }
+    @State var newColor: Color = .white
     
     var body: some View {
-        VStack {
-            TextEditor(text: $message)
-                .frame(width: 350, height: 400)
-            Button(buttonStatus ? " Start recoding" : "Stop recoding", action: {
-                buttonStatus.toggle()
-                if buttonStatus {
-                    stopRecoding()
-                } else {
-                    startRecoding()
-                }
-            })
+        VStack(spacing: 25) {
+            Button {
+                recognizeSpeech()
+            } label: {
+                Text("Start recording")
+            }
+            TextField("Spoken text appears here", text: $message)
+            Button {
+                message = ""
+                newColor = .white
+                stopSpeech()
+            } label: {
+                Text("Stop recording")
+            }
         }
-        .padding()
+        .background(newColor)
     }
     // MARK: - Methods
-    func startRecoding() {
+    func checkSpokenCommand(commandString: String) {
+        switch commandString {
+        case "Purple":
+            newColor = .purple
+        case "Green":
+            newColor = .green
+        case "Yellow":
+            newColor = .yellow
+        default:
+            newColor = .white
+        }
+    }
+ 
+    func recognizeSpeech() {
         message = "Start recoding"
         let node = audioEngine.inputNode
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
@@ -64,9 +74,17 @@ struct ContentView: View {
             if let result = result {
                 let transcribedString = result.bestTranscription.formattedString
                 message = transcribedString
+                checkSpokenCommand(commandString: transcribedString)
             } else if let error = error {
                 print(error)
             }
         })
+    }
+    
+    func stopSpeech() {
+        audioEngine.stop()
+        recognitionTask?.cancel()
+        audioEngine.inputNode.removeTap(onBus: 0)
+        recognitionRequest?.endAudio()
     }
 }
